@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}
+
+            {% endblock %}
+            | Carlos Subero
+        </title>
+
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    </head>
+
+    <body>
+        <!--Cabecea de la pagina-->
+        <header>
+            <div id="logotipo">
+                <!--logo django-->
+                <img src="{% static 'images/logo.png' %}" alt="">
+                <h1>Sitio web con DJango</h1>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}">Inicio</a>
+                </li>
+                <li>
+                    <a href="{% url 'hola_mundo' %}">Hola Mundo</a>
+                </li>
+                <li>
+                    <a href="{% url 'pagina' %}">Pagina de pruebas</a>
+                </li>
+                <li>
+                    <a href="{% url 'contacto' 'Carlos' 'Subero'%}">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="barra">
+            <span class="esquina-izquierda"></span>
+            <span class="relleno-barra"></span>
+            <span class="esquina-derecha"></span>
+        </div>
+
+        <div id="content">
+            <div class="box">
+                <!-- Codigo que viene desde template -->
+                {% block content %}
+                    
+                {% endblock %}
+            </div>
+        </div>
+
+        <footer>
+            Master en python Django &copy; 2021 | Creado por Carlos Subero - {% now "d/m/Y h:m:s" %}
+        </footer>
+    </body>
+
+</html>

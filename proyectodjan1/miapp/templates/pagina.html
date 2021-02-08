@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% load filters %}
+
+{% block title %} Página de pruebas {% endblock %}
+
+{%block content %}
+    {{ block.super }}
+    
+    <h1 class="title">Pagina de mi web</h1>
+    <p>{{"Creado por Carlos Subero"|cut:"ñ"}}</p>
+
+    <p>
+        {{texto|default:'No hay nada'}} agrega un texto por defecto
+    </p>
+    
+    <p>
+        {{lista|first}}:  muestra el primero de la lista
+    </p>
+
+    <p>
+        {{lista|last}}: muestra el ultimo de la lista
+    </p>
+
+    <p>
+        {{lista|join:', '}}: lista todo y lo separa
+    </p>
+    
+    <p>
+        {{lista|length}}: muestra la cantidad de elementos
+    </p>
+    
+    <p>
+        {{lista|upper}}: coloca todo en mayusculas
+    </p>
+    
+    <p>
+        {{lista|random}}: numero aleatorio
+    </p>
+    
+    <p>
+        {{"<h1>lista</h1> <strong>prueba texto</strong> hola <p>mundo</p>"|striptags}}: formatea el codigo html 
+    </p>
+    
+    <p>
+        {{"<h1>lista</h1> <strong>prueba texto</strong> hola <p>mundo</p>"|striptags|wordcount}}: se pueden utilizar mas de un filtro a la vez, cuenta el numero de palabras
+    </p>
+
+
+    {{"Carlos"|saludo|safe}}
+    
+{%endblock%}
